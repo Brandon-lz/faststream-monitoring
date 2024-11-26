@@ -7,12 +7,13 @@ def tdengine_example()->taosrest.TaosRestConnection:
     url="http://localhost:6041"
     reqId = 3
     try:
-        client = taosrest.connect(url=url,
-                    user="root",
-                    password="taosdata",
-                    timeout=30,
-                    timezone="Asia/Shanghai",
-                    )
+        client = taosrest.connect(
+            url=url,
+            user="root",
+            password="taosdata",
+            timeout=30,
+            timezone="Asia/Shanghai",
+        )
         print(f"Connected to {url} successfully.")
 
         # create database
@@ -32,7 +33,7 @@ def tdengine_example()->taosrest.TaosRestConnection:
             sql = f"""
                 INSERT INTO 
                 power.d1001 USING power.meters (groupid, location) TAGS(2, "California.SanFrancisco")
-                    VALUES (NOW + 1a, {data}, 219, 0.31000) 
+                    VALUES (NOW , {data}, 219, 0.31000) 
                 """
             affectedRows = client.execute(sql)
             print(f"Successfully inserted {affectedRows} rows to power.meters.")
