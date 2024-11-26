@@ -16,6 +16,8 @@ dependencies = [
     "adaptix>=3.0.0b5",
     "uvicorn>=0.32.0",
     "faststream[otel,prometheus,rabbit]>=0.5.28",
+    "taospy>=2.7.6",
+    "taos-ws-py>=0.3.5",
 ]
 
 [project.urls]

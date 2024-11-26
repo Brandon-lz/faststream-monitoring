@@ -41,6 +41,7 @@ def main() -> AsgiFastStream:
             await broker.publish(Order(symbol="AAPL" * 300, quantity=1, type=Direction.BUY), "orders")
             await broker.publish(Order(symbol="AAPL", quantity=-1, type=Direction.BUY), "orders")
             await asyncio.sleep(random.randint(1, 50) / 10)
+            print(1111111111111)
 
     return app
 

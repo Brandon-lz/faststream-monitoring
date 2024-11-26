@@ -6,6 +6,8 @@ services:
     build:
       context: .
     restart: unless-stopped
+    ports:
+      - "8080:8080"
     depends_on:
       rabbit:
         condition: service_healthy
@@ -130,6 +132,7 @@ services:
       - example.grafana.network
 
   prometheus:
+    profiles: [ "grafana" ]
     image: prom/prometheus:latest
     container_name: example.prometheus
     hostname: example.prometheus
@@ -143,12 +146,61 @@ services:
       - "9090:9090"
     networks:
       - example.grafana.network
+  
+  # 时序数据库
+  timedb:
+    profiles: [ "exchange" ]
+    image: tdengine/tdengine:latest
+    container_name: example.timedb
+    hostname: example.timedb
+    ports:
+      - "6030:6030"
+      - "6041:6041"
+      - "6042:6042"
+      - 6043-6060:6043-6060/udp
+    networks:
+      - example.grafana.network
+    environment:
+      - TDENGINE_USER=${TDENGINE_USER:-root}
+      - TDENGINE_PASSWORD=${TDENGINE_PASSWORD:-taosdata}
+    volumes:
+      - example.timedb.data:/var/lib/taos:rw
+      - example.timedb.log:/var/log/taos:rw
+  
+  pgdb:
+    profiles: [ "exchange" ]
+    image: bitnami/postgresql:14
+    container_name: example.pgdb
+    hostname: example.pgdb
+    ports:
+      - "5432:5432"
+    networks:
+      - example.grafana.network
+    environment:
+      - POSTGRES_USER=${PGDB_USER:-postgres}
+      - POSTGRES_PASSWORD=${PGDB_PASSWORD:-postgres}
+      - POSTGRES_DB=${PGDB_DATABASE:-postgres}
+    # volumes:
+    #   - example.pgdb.data:/var/lib/postgresql/data:rw
+    #   - example.pgdb.log:/var/log/postgresql:rw
+
+  adminer:
+    image: adminer
+    container_name: example.adminer
+    ports:
+      - 30002:8080
+    environment:
+      - ADMINER_DESIGN=pepa-linha
+    networks:
+      - example.grafana.network
+
 
 volumes:
   example.grafana.data: {}
   example.rabbit.data: {}
   example.tempo.data: {}
-
+  example.timedb.data: {}
+  example.timedb.log: {}
 
 networks:
   example.grafana.network: {}
