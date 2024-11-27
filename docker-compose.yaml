@@ -101,6 +101,7 @@ services:
       - example.grafana.data:/var/lib/grafana:rw
       - ./grafana/provisioning:/etc/grafana/provisioning:rw
       - ./grafana/dashboards:/etc/grafana/dashboards
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
     environment:
       - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
@@ -109,6 +110,7 @@ services:
       - VIRTUAL_HOST=example.grafana
       - NETWORK_ACCESS=internal
       - VIRTUAL_PORT=3000
+      - min_refresh_interval=1s
 
   tempo:
     profiles: [ "grafana" ]
