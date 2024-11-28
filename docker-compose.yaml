@@ -101,7 +101,7 @@ services:
       - example.grafana.data:/var/lib/grafana:rw
       - ./grafana/provisioning:/etc/grafana/provisioning:rw
       - ./grafana/dashboards:/etc/grafana/dashboards
-      - ./grafana/plugins:/var/lib/grafana/plugins:rw
+      # - ./grafana/plugins:/var/lib/grafana/plugins:rw
       # - ./grafana/grafana.ini:/etc/grafana/grafana.ini
 
     environment:
