@@ -101,7 +101,9 @@ services:
       - example.grafana.data:/var/lib/grafana:rw
       - ./grafana/provisioning:/etc/grafana/provisioning:rw
       - ./grafana/dashboards:/etc/grafana/dashboards
-      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./grafana/plugins:/var/lib/grafana/plugins:rw
+      # - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+
     environment:
       - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
@@ -168,7 +170,7 @@ services:
     volumes:
       - example.timedb.data:/var/lib/taos:rw
       - example.timedb.log:/var/log/taos:rw
-  
+
   pgdb:
     profiles: [ "exchange" ]
     image: bitnami/postgresql:14
@@ -207,3 +209,5 @@ volumes:
 networks:
   example.grafana.network: {}
   example.rabbit.network: {}
+
+# docker compose --profile exchange --profile grafana up -d --build 

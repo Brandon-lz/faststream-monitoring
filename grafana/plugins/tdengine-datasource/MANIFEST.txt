@@ -1,0 +1,48 @@
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+{
+  "manifestVersion": "2.0.0",
+  "signatureType": "commercial",
+  "signedByOrg": "tdengine",
+  "signedByOrgName": "TDengine",
+  "plugin": "tdengine-datasource",
+  "version": "3.7.0",
+  "time": 1732536382814,
+  "keyId": "7e4d0c6a708866e7",
+  "files": {
+    "tdengine-datasource_darwin_arm64": "38c17a0d1b3a6d3d88198130d225fdfd15a9d5e3a9baa7f7c90d4ca9798dece4",
+    "go_plugin_build_manifest": "abd721fc9137fb30baa024a19c0df0b529ecae17a1b493ec39d6c651d0fa918a",
+    "LICENSE": "3b091306f8a4c22c2cc7f332f32f4ec146a4cbf99898688a04e59ec8d6c3c355",
+    "tdengine-datasource_linux_amd64": "2fee46a60a301c6a7fd42c87f69dcd1db218d3ced94dce2defeafd263256a73b",
+    "CHANGELOG.md": "e62ffd469050f0b94a645066e1a9f58b5dfef9714a077a70e47039c40c5bad79",
+    "tdengine-datasource_linux_arm": "8f7f74f3c495a8e7c12e72cf0a6de8f8818fa50c1527e3855dc36d344d0e7e63",
+    "tdengine-datasource_linux_arm64": "79b9b15493c834c780e1d0e0c52e0a41a07cc4c11a4f4b0e2ac4ca2995b90a9c",
+    "plugin.json": "2a7547cc8345e2500af5b5fe0b4159c6654bca20b43df8163aec0900c44b82c7",
+    "tdengine-datasource_windows_amd64.exe": "e65f7f4a089ad581362152bbc019e4c00e332195a64134f6492a7f7ba1c40956",
+    "dashboards/TDsmeters.json": "1402d2267ba1d0bf7dacce45238ac126d6cb724c656c85659243947087e3aa5f",
+    "dashboards/TDinsight-15167.json": "aaf67c1b697c9fa61a0de2b405818d5c5aa3d7397f21074b0a07b1e02c1dc358",
+    "dashboards/taosX.json": "d06a11605f878872ecfb5a64fb1ebb13a866901bdee56b3d90b784be701ea65f",
+    "dashboards/TDinsightV2.json": "65dd0172b134f29905ab4cb7ccb55e44481fff5376ac28c952fadeb6b932267f",
+    "dashboards/TDinsightV3.json": "af7f69c97fb8be6877cc2b279d73ae4567cd787042f0af1564adc07d262f0a96",
+    "module.js.map": "0a9b87c42d3138883e4b3f312b68942fb7f1b8415e6cbcbceef957a26e0a1e61",
+    "README.md": "e67e468eef507eddbd5f9345c132526ad28b530ec82d9f3b27e6accb1593468b",
+    "tdengine-datasource_darwin_amd64": "4e7b6be26bc2c7d6aa7e4733cf6669ab574ed74586b5602ffa724928b888d5dd",
+    "img/howto-add-datasource.jpg": "0527c4174e0191e1be2b10b1bb5655a35192a4a2c58feab43a5885c6ecb4cce3",
+    "img/taosdata_logo.png": "266b72e3dfbb7ecd3dd8f49df7cd488d71a34e2a10063f24cc8faf1b7807c339",
+    "module.js": "96493200c2a3f158f4d29fdaf728575d616939d320e8495e927ddbe2eb53bcc6",
+    "alert_rules.json": "a944117ed3a2021259b61191b49561b76ca13edc21eb445b6d5fb033d709fd9d"
+  }
+}
+-----BEGIN PGP SIGNATURE-----
+Version: OpenPGP.js v4.10.11
+Comment: https://openpgpjs.org
+
+wrkEARMKAAYFAmdEaD8AIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
+cIhm5wj7AgkBtQSaD+v2WcqtqVJ82R6cUZI0qRFip/xrMmIAr0dyAXVnT572
+FB2JpbF3IIx3wGwbU7k7ekT83dNTuBZN8IvL9AQCCQGzUemHbVFZbVPu4Z7S
+99lNUs9+vMCfGmrv2qhZ29gARx+5qUH0XCzVmpRUJG+rQMQC7bFz9D372xuJ
+uPJ9SEFkYg==
+=5SVY
+-----END PGP SIGNATURE-----

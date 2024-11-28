@@ -32,13 +32,16 @@ def tdengine_example()->taosrest.TaosRestConnection:
             data += 0.1*random.randint(-50,100)
             sql = f"""
                 INSERT INTO 
-                power.d1001 USING power.meters (groupid, location) TAGS(2, "California.SanFrancisco")
+                power.d1001 USING power.meters (groupid, location) TAGS(3, "California")
                     VALUES (NOW , {data}, 219, 0.31000) 
+
                 """
             affectedRows = client.execute(sql)
             print(f"Successfully inserted {affectedRows} rows to power.meters.")
             time.sleep(0.5)
+            
             # break
+        # sql = "SELECT ts, current, location FROM power.meters limit 100"
         sql = "SELECT ts, current, location FROM power.meters limit 100"
         result = client.query(sql)
         for row in result:
@@ -46,7 +49,7 @@ def tdengine_example()->taosrest.TaosRestConnection:
         print(f"Successfully queried {result.code} rows from power.meters.")
 
         # delete data
-        client.execute("DELETE FROM power.meters WHERE ts > '2021-10-01 00:00:00.000'")
+        # client.execute("DELETE FROM power.meters WHERE ts > '2021-10-01 00:00:00.000'")
 
 
         # drop database
