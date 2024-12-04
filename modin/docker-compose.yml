@@ -1,0 +1,38 @@
+services:
+  scheduler:
+    container_name: modin.scheduler
+    hostname: modin.scheduler
+    build:
+      context: .
+    restart: unless-stopped
+    ports:
+      - "8787:8787"
+      - "8786:8786"
+    networks:
+      - modin.scheduler.network
+    command:  ["pdm", "run", "dask", "scheduler" ,"--port=8786", "--dashboard-address=:8787"]
+
+  
+  worker1:
+    container_name: modin.worker1
+    hostname: modin.worker1
+    build:
+      context: .
+    restart: unless-stopped
+    networks:
+      - modin.scheduler.network
+    command:  ["pdm", "run", "dask", "worker", "modin.scheduler:8786", "--no-dashboard"]
+  
+  worker2:
+    container_name: modin.worker2
+    hostname: modin.worker2
+    build:
+      context: .
+    restart: unless-stopped
+    networks:
+      - modin.scheduler.network
+    command:  ["pdm", "run", "dask", "worker", "modin.scheduler:8786", "--no-dashboard"]
+
+
+networks:
+  modin.scheduler.network: {}

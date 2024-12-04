@@ -75,3 +75,5 @@ dmypy.json
 .idea/
 .vscode/
 tempo-data/
+
+taxi.csv
