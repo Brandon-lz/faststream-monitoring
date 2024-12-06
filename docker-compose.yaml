@@ -102,7 +102,7 @@ services:
       - ./grafana/provisioning:/etc/grafana/provisioning:rw
       - ./grafana/dashboards:/etc/grafana/dashboards
       # - ./grafana/plugins:/var/lib/grafana/plugins:rw
-      # - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
 
     environment:
       - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
@@ -112,7 +112,7 @@ services:
       - VIRTUAL_HOST=example.grafana
       - NETWORK_ACCESS=internal
       - VIRTUAL_PORT=3000
-      - min_refresh_interval=1s
+      - GF_DASHBOARDS_MIN_REFRESH_INTERVAL=500ms
 
   tempo:
     profiles: [ "grafana" ]
